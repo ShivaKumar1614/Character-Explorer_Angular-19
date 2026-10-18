@@ -1,0 +1,84 @@
+.eyebrow {
+    color: #2563eb;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: .13em;
+    margin: 4px 0 10px;
+}
+
+.toolbar {
+    margin-bottom: 14px;
+}
+
+.summary {
+    color: #667085;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.loading {
+    display: grid;
+    justify-items: center;
+    padding: 60px;
+    color: #667085;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 18px;
+}
+
+.character-card {
+    background: white;
+    border: 1px solid #e6eaf0;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .15s, box-shadow .15s;
+}
+
+.character-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px #18274b12;
+}
+
+.character-card>img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.4;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 14px;
+}
+
+.card-body h2 {
+    margin: 0 0 9px;
+    font-size: 18px;
+}
+
+.card-body p {
+    margin: 8px 0;
+    font-size: 13px;
+}
+
+.api-pager,
+.grid-pager {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 16px;
+    color: #667085;
+    font-size: 13px;
+}
+
+.grid-pager {
+    grid-column: 1 / -1;
+}
+
+.search-field .mdc-floating-label .mat-mdc-floating-label:not(mat-mdc-floating-label--above) {
+    margin-left: 3rem !important;
+}

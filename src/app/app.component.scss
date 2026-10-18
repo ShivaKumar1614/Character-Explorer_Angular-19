@@ -1,0 +1,14 @@
+.bar { background: var(--lab); color: #eaf5e0; gap: 16px; flex-wrap: wrap; height: auto; min-height: 64px; padding: 8px 16px; }
+    .brand { display: flex; align-items: center; gap: 8px; color: var(--portal); text-decoration: none; font-weight: 700; font-size: 20px; }
+    .search { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.12); border-radius: 6px; padding: 0 12px; height: 40px; flex: 1 1 260px; max-width: 420px; }
+    .search:focus-within { background: rgba(255,255,255,.2); outline: 2px solid var(--portal); }
+    .search input { background: none; border: 0; outline: 0; color: inherit; font: inherit; width: 100%; }
+    .search input::placeholder { color: #b6c9bc; }
+    .spacer { flex: 1 1 auto; }
+    .role-label { font-size: 18px; color: #b6c9bc; }
+    .roleField { background-color: #fff; border-radius: 5px;}
+    .roles { --mat-button-toggle-height: 36px; --mat-button-toggle-background-color: transparent; --mat-button-toggle-text-color: #eaf5e0;
+      --mat-button-toggle-selected-state-background-color: var(--portal); --mat-button-toggle-selected-state-text-color: #16262b;
+      --mat-button-toggle-divider-color: rgba(255,255,255,.3); border-color: rgba(255,255,255,.3); }
+    main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
+ 

@@ -1,0 +1,13 @@
+<mat-toolbar class="bar">
+  <a routerLink="/characters" class="brand"><mat-icon>science</mat-icon><span>Character Explorer</span></a>
+  <span class="spacer"></span>
+
+  <span class="role-label" id="role-label">Role</span>
+  <mat-form-field appearance="outline" subscriptSizing="dynamic" class="roleField">
+    <mat-select [value]="auth.role()" (selectionChange)="changeRole($event.value)">
+      <mat-option value="admin">Admin</mat-option>
+      <mat-option value="viewer">Viewer</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-toolbar>
+<main><router-outlet></router-outlet></main>

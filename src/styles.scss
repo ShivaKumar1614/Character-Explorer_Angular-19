@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+html {
+  color-scheme: light;
+  @include mat.theme((
+    color: (
+      primary: mat.$green-palette,
+      tertiary: mat.$cyan-palette,
+      theme-type: light,
+    ),
+    typography: 'Space Grotesk, Roboto, sans-serif',
+    density: 0,
+  ));
+}
+
+:root {
+  --portal: #97ce4c;
+  --lab: #16262b;
+  --page-bg: #f3f6f4;
+}
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--page-bg);
+  font-family: 'Space Grotesk', Roboto, sans-serif;
+  color: #1c2b2f;
+}
+
+.error-banner, .info-banner {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; border-radius: 6px; margin-bottom: 16px;
+}
+.error-banner { background: #fde8e6; color: #7a1d14; border-left: 4px solid #c0392b; }
+.info-banner  { background: #e8f3dc; color: #274012; border-left: 4px solid var(--portal); }
+html, body { min-height: 100%; }
+body { margin: 0; font-family: Roboto, Arial, sans-serif; background: #f5f7fb; color: #202938; }
+* { box-sizing: border-box; }
+.page { max-width: 1200px; margin: 0 auto; padding: 28px 22px; }
+.page-heading { margin: 0 0 6px; font-size: 28px; font-weight: 700; }
+.muted { color: #697586; }
+.toolbar { display: flex; gap: 14px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin: 22px 0; }
+.search-field { width: min(100%, 420px); }
+.surface { background: white; border: 1px solid #e6eaf0; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 18px rgba(24, 39, 75, .04); }
+.loading, .empty, .error { padding: 28px; text-align: center; color: #697586; }
+.error { color: #b42318; }
+.avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; vertical-align: middle; margin-right: 12px; }
+.name-cell { display: flex; align-items: center; }
+@media (max-width: 600px) { .page { padding: 18px 12px; } .page-heading { font-size: 23px; } }
+.error-snackbar { --mdc-snackbar-container-color: #b00020; --mdc-snackbar-supporting-text-color: white; }

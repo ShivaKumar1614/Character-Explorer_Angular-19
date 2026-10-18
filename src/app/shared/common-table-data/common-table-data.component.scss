@@ -1,0 +1,44 @@
+    .table-filter {
+        padding: 16px 16px 0;
+    }
+
+    .table-filter mat-form-field {
+        width: min(100%, 340px);
+    }
+
+    .table-wrap {
+        overflow-x: auto;
+    }
+
+    .full-table {
+        width: 100%;
+    }
+
+    th {
+        color: #667085;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+    }
+
+    td,
+    th {
+        padding: 14px 18px;
+        white-space: nowrap;
+    }
+
+    .table-avatar {
+        width: 38px;
+        height: 38px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .clickable {
+        cursor: pointer;
+    }
+
+    .clickable:hover {
+        background: #f8fafc;
+    }

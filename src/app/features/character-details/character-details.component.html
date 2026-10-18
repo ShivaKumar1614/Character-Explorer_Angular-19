@@ -1,0 +1,32 @@
+<section class="page">
+    <a routerLink="/characters" class="back-link"><mat-icon>arrow_back</mat-icon> Back to characters</a>
+    <div class="loading" *ngIf="loading"><mat-spinner diameter="36"></mat-spinner>
+        <p>Loading character details…</p>
+    </div>
+    <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <ng-container *ngIf="character && !loading">
+        <section class="hero surface">
+            <img [src]="character.image" [alt]="character.name">
+            <div class="hero-info">
+                <p class="eyebrow">CHARACTER DETAILS</p>
+                <h1 class="page-heading">{{ character.name }}</h1>
+                <p><span class="status" [class.dead]="character.status === 'Dead'">{{ character.status }}</span> · {{
+                    character.species }}</p>
+                <p class="muted">Gender: {{ character.gender }}</p>
+                <p class="muted">Episodes: {{ episodes.length }}</p>
+            </div>
+        </section>
+
+        <div class="section-title">
+            <div>
+                <h2>Episode appearances</h2>
+                <p class="muted">Search by episode name using the table filter.</p>
+            </div>
+        </div>
+        <div class="surface">
+            <app-common-table-data [columns]="episodeColumns" [rows]="episodeRows"
+                [enableInternalFilter]="true"></app-common-table-data>
+        </div>
+    </ng-container>
+</section>
