@@ -1,23 +1,26 @@
 <section class="page">
     <a routerLink="/characters" class="back-link"><mat-icon>arrow_back</mat-icon> Back to characters</a>
-    <div class="loading" *ngIf="loading"><mat-spinner diameter="36"></mat-spinner>
+     @if (loading()) {
+    <div class="loading" ><mat-spinner diameter="36"></mat-spinner>
         <p>Loading character details…</p>
     </div>
-    <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
-
-    <ng-container *ngIf="character && !loading">
+    }
+    @if (errorMessage()) {
+    <div class="error">{{ errorMessage() }}</div>
+    }
+ @if (!loading() && character(); as c) {
         <section class="hero surface">
-            <img [src]="character.image" [alt]="character.name">
+            <img [src]="c.image" [alt]="c.name">
             <div class="hero-info">
                 <p class="eyebrow">CHARACTER DETAILS</p>
-                <h1 class="page-heading">{{ character.name }}</h1>
-                <p><span class="status" [class.dead]="character.status === 'Dead'">{{ character.status }}</span> · {{
-                    character.species }}</p>
-                <p class="muted">Gender: {{ character.gender }}</p>
-                <p class="muted">Episodes: {{ episodes.length }}</p>
+                <h1 class="page-heading">{{ c.name }}</h1>
+                <p><span class="status">{{ c.status }}</span> · {{
+                    c.species }}</p>
+                <p class="muted">Gender: {{ c.gender }}</p>
+                <p class="muted">Episodes: {{ episodes().length }}</p>
             </div>
         </section>
-
+    
         <div class="section-title">
             <div>
                 <h2>Episode appearances</h2>
@@ -25,8 +28,8 @@
             </div>
         </div>
         <div class="surface">
-            <app-common-table-data [columns]="episodeColumns" [rows]="episodeRows"
+            <app-common-table-data [columns]="episodeColumns" [rows]="episodeRows()"
                 [enableInternalFilter]="true"></app-common-table-data>
         </div>
-    </ng-container>
+    }
 </section>
