@@ -25,8 +25,13 @@ export class CommonTableComponent {
   @Input() rows: Record<string, unknown>[] = [];
   @Input() enableInternalFilter = false;
   @Input() rowClickable = false;
-  @Input() pageSize = 10;
+  @Input() pageSize = 20;
+  @Input() pageSizeOptions: number[] = [20];
+  @Input() serverSidePagination = false;
+  @Input() totalItems = 0;
+  @Input() serverPageIndex = 0;
   @Output() rowClick = new EventEmitter<Record<string, unknown>>();
+  @Output() pageChange = new EventEmitter<PageEvent>();
 
   filterText = '';
   pageIndex = 0;
@@ -53,6 +58,11 @@ export class CommonTableComponent {
   }
 
   pageChanged(event: PageEvent): void {
+    if (this.serverSidePagination) {
+      this.pageChange.emit(event);
+      return;
+    }
+
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
   }

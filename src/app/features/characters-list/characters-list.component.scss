@@ -64,19 +64,9 @@
     font-size: 13px;
 }
 
-.api-pager,
-.grid-pager {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-    padding: 16px;
-    color: #667085;
-    font-size: 13px;
-}
-
 .grid-pager {
     grid-column: 1 / -1;
+    width: 100%;
 }
 
 .search-field .mdc-floating-label .mat-mdc-floating-label:not(mat-mdc-floating-label--above) {

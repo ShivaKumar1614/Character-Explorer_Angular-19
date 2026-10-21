@@ -26,11 +26,12 @@ import { MatInputModule } from "@angular/material/input";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { RestApiService } from "../../core/services/rest-api.service";
 import { MatCardModule } from "@angular/material/card";
+import { MatPaginatorModule, PageEvent } from "@angular/material/paginator";
 
 @Component({
   selector: "app-characters-list",
   imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatIconModule, MatCardModule,
-     MatButtonModule, MatButtonToggleModule, MatProgressSpinnerModule, CommonTableComponent
+    MatButtonModule, MatButtonToggleModule, MatProgressSpinnerModule, MatPaginatorModule, CommonTableComponent
   ],
   templateUrl: "./characters-list.component.html",
   styleUrl: "./characters-list.component.scss",
@@ -106,6 +107,10 @@ export class CharactersListComponent {
       this.totalCount = response.info.count;
       this.totalPages = response.info.pages;
     });
+  }
+
+  onPageChange(event: PageEvent): void {
+    this.loadPage(event.pageIndex + 1);
   }
 
   openCharacter(row: Record<string, unknown> | Character): void {
